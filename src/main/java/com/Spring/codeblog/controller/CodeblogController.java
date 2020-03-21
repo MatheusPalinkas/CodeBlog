@@ -55,4 +55,10 @@ public class CodeblogController {
 
         return  "redirect:/posts";
     }
+
+    @RequestMapping(value = "/posts/delete/{id}", method = RequestMethod.GET)
+    public String deletePost(@PathVariable("id") long id){
+        codeblogService.delete(id);
+        return  "redirect:/posts";
+    }
 }

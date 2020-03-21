@@ -72,6 +72,7 @@
             border-radius: 5px;
             box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
             margin-bottom: 30px;
+            position: relative;
         }
         .post-autor{
             font-size: 0.85em;
@@ -104,6 +105,16 @@
             font-size: 1em;
             line-height: 1.5em;
         }
+        .delete{
+            color: #6c5ce7;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+         }
+        .delete i{
+                    font-size: 3em;
+        }
+
     </style>
     <title>Code Blog</title>
 </head>
@@ -124,6 +135,8 @@
             </nav>
 
             <div class="card-post" th:each="post: ${posts}">
+                <a class="delete" th:href="${(#mvc.url('CC#deletePost').arg(0, post.id)).build()}"> <i class="material-icons">delete_outline</i></a>
+
                 <p class="post-autor">
                     <span th:text="${post.autor}"></span>
                     <span th:text="${post.data}"></span>

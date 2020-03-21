@@ -9,5 +9,5 @@ public interface CodeblogService {
     List<Post> findeAll();
     Post findById(long id);
     Post save(Post post);
-
+    void delete(long id);
 }
