@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: #E7E6F2;
+            font-family: Roboto, sans-serif;
+        }
+        .navBar{
+            background: #6c5ce7;
+            padding: 15px 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .navBar span{
+            font-size: 2em;
+            color: #FFF;
+            font-weight: bold;
+        }
+        .navBar > a{
+            padding: 10px 20px;
+            font-family: Roboto, sans-serif;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+            font-weight: bold;
+            background: #00b894;
+            color: #FFF;
+            display: flex;
+            text-decoration: none;
+            align-items: center;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .navBar > a i{
+            margin-right: 5px;
+        }
+        main{
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+        .breadcrumb{
+            margin-bottom: 30px;
+        }
+        .breadcrumb ol{
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+        }
+       .breadcrumb ol li{
+            font-size: 1.5em;
+            color: #313033;
+            font-family: Roboto, sans-serif;
+            padding-right: 5px;
+        }
+        .breadcrumb ol li a{
+            text-decoration:none;
+            color: #313033;
+            transition: all .1s;
+        }
+        .breadcrumb ol li a:hover{
+            color: #6c5ce7;
+        }
+        .formNewPost{
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .campo{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+        .campo label{
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .campo input, .campo textarea{
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+            resize: none;
+            color: #2d3436;
+        }
+        .campo-botoes{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .campo-botoes a, .campo-botoes button{
+            padding: 15px 30px;
+            font-family: Roboto, sans-serif;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+            font-weight: bold;
+            background: #00b894;
+            color: #FFF;
+            display: flex;
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            justify-content: center;
+            width: 100%;
+            max-width: 290px;
+        }
+        .campo-botoes a{
+            background: #d63031;
+         }
+    </style>
+    <title>Code Blog</title>
+</head>
+<body>
+    <header>
+        <nav class="navBar">
+            <span>CodeBlog</span>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-post">
+            <nav class="breadcrumb">
+                <ol>
+                    <li><a href="/posts">Posts</a></li>
+                    <li>/</li>
+                    <li>Novo Post</li>
+                </ol>
+            </nav>
+            <div class="formNewPost">
+                <form method="post">
+                    <div class="campo">
+                        <label for="titulo">Título</label>
+                        <input type="text" name="titulo" id="titulo" placeholder="Título do post" required/>
+                    </div>
+                    <div class="campo">
+                        <label for="autor">Nome autor</label>
+                        <input type="text" name="autor" id="autor" placeholder="Nome do autor do post" required/>
+                    </div>
+                    <div class="campo">
+                        <label for="texto">Texto</label>
+                        <textarea name="texto" id="texto" placeholder="Digite o conteúdo do post" rows="15" required></textarea>
+                    </div>
+                    <div class="campo-botoes">
+                        <button type="submit">Publicar</button>
+                        <a href="/posts">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 
     <style>
         *{
@@ -17,11 +18,32 @@
         .navBar{
             background: #6c5ce7;
             padding: 15px 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
         }
         .navBar span{
             font-size: 2em;
             color: #FFF;
             font-weight: bold;
+        }
+        .navBar > a{
+            padding: 10px 20px;
+            font-family: Roboto, sans-serif;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+            font-weight: bold;
+            background: #00b894;
+            color: #FFF;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .navBar > a i{
+            margin-right: 5px;
         }
         main{
             margin: 30px;
@@ -89,6 +111,7 @@
     <header>
         <nav class="navBar">
             <span>CodeBlog</span>
+            <a href="/newpost"><i class="material-icons">add_circle_outline</i> Novo post</a>
         </nav>
     </header>
 
