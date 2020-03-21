@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: #E7E6F2;
+            font-family: Roboto, sans-serif;
+        }
+        .navBar{
+            background: #6c5ce7;
+            padding: 15px 30px;
+        }
+        .navBar span{
+            font-size: 2em;
+            color: #FFF;
+            font-weight: bold;
+        }
+        main{
+            margin: 30px;
+        }
+        .container-posts{
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .breadcrumb{
+            margin-bottom: 30px;
+        }
+        .breadcrumb ol{
+            list-style-type: none;
+        }
+        .breadcrumb ol li{
+            font-size: 1.5em;
+            color: #313033;
+        }
+
+
+        .card-post{
+            background: #E7E6F2;
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+            margin-bottom: 30px;
+        }
+        .post-autor{
+            font-size: 0.85em;
+            color: #636e72;
+            margin-bottom: 15px;
+            padding-left: 5px;
+        }
+        .post-autor span{
+            margin-left: 5px;
+        }
+        .post-autor:before{
+            content: 'By ';
+        }
+        .post-titulo{
+            text-decoration: none;
+             font-size: 1.4em;
+        }
+        .post-titulo h3{
+            text-transform: capitalize;
+            color: #2d3436;
+            padding-left: 5px;
+            transition: all .1s;
+        }
+        .post-titulo h3:hover{
+            border-left: 3px solid #6c5ce7;
+        }
+        .post-descricao{
+            padding-left: 5px;
+            margin: 15px 0;
+            font-size: 1em;
+            line-height: 1.5em;
+        }
+    </style>
+    <title>Code Blog</title>
+</head>
+<body>
+    <header>
+        <nav class="navBar">
+            <span>CodeBlog</span>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-posts">
+            <nav class="breadcrumb">
+                <ol>
+                    <li>Posts</li>
+                </ol>
+            </nav>
+
+            <div class="card-post" th:each="post: ${posts}">
+                <p class="post-autor">
+                    <span th:text="${post.autor}"></span>
+                    <span th:text="${post.data}"></span>
+                </p>
+
+                <a href="#" class="post-titulo">
+                    <h3>
+                        <span th:text="${post.titulo}"></span>
+                    </h3>
+                </a>
+
+                <p class="post-descricao">
+                    <span th:utext="${#strings.abbreviate(post.texto, 400)}"></span>
+                </p>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>
