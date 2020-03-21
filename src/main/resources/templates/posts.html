@@ -106,7 +106,7 @@
                     <span th:text="${post.data}"></span>
                 </p>
 
-                <a href="#" class="post-titulo">
+                <a th:href="${(#mvc.url('CC#getPostDetails').arg(0, post.id)).build()}" class="post-titulo">
                     <h3>
                         <span th:text="${post.titulo}"></span>
                     </h3>

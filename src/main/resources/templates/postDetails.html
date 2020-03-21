@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Icons google-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: #E7E6F2;
+            font-family: Roboto, sans-serif;
+        }
+        .navBar{
+            background: #6c5ce7;
+            padding: 15px 30px;
+        }
+        .navBar span{
+            font-size: 2em;
+            color: #FFF;
+            font-weight: bold;
+        }
+        main{
+            margin: 30px;
+        }
+        .container-post{
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .breadcrumb{
+            margin-bottom: 30px;
+        }
+        .breadcrumb ol{
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+        }
+        .breadcrumb ol li{
+            font-size: 1.5em;
+            color: #313033;
+            font-family: Roboto, sans-serif;
+            padding-right: 5px;
+        }
+        .breadcrumb ol li a{
+            text-decoration:none;
+            color: #313033;
+            transition: all .1s;
+        }
+        .breadcrumb ol li a:hover{
+            color: #6c5ce7;
+        }
+        article{
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        article h1{
+            font-size: 2.25em;
+            color: #2d3436;
+        }
+        article > p{
+            margin: 15px 0;
+        }
+        .autor, .data{
+            font-size: 0.85em;
+            color: #636e72;
+            display: flex;
+            align-items: center;
+        }
+        .corpo-texto{
+            font-size: 1em;
+            line-height: 1.6em;
+        }
+    </style>
+    <title>Code Blog</title>
+</head>
+<body>
+<header>
+    <nav class="navBar">
+        <span>CodeBlog</span>
+    </nav>
+</header>
+
+<main>
+    <div class="container-post">
+        <nav class="breadcrumb">
+            <ol>
+                <li><a href="/posts">Posts</a></li>
+                <li>/</li>
+                <li><span th:text="${post.titulo}"></span></li>
+            </ol>
+        </nav>
+
+        <article>
+            <h1><span th:text="${post.titulo}"></span></h1>
+
+            <p>
+                <div class="autor">
+                    <i class="material-icons">person_outline</i>
+                    <span th:text="${post.autor}"></span>
+                </div>
+                <div class="data">
+                    <i class="material-icons">date_range</i>
+                    <span th:text="${post.data}"></span>
+                </div>
+            </p>
+
+            <section class="corpo-texto">
+                <p>
+                    <span th:utext="${post.texto}"></span>
+                </p>
+            </section>
+        </article>
+    </div>
+</main>
+</body>
+</html>
