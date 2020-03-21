@@ -105,13 +105,16 @@
             font-size: 1em;
             line-height: 1.5em;
         }
-        .delete{
+        .delete, .update{
             color: #6c5ce7;
             cursor: pointer;
             position: absolute;
             right: 10px;
          }
-        .delete i{
+         .update{
+            right: 70px;
+         }
+        .delete i, .update i{
                     font-size: 3em;
         }
 
@@ -136,6 +139,7 @@
 
             <div class="card-post" th:each="post: ${posts}">
                 <a class="delete" th:href="${(#mvc.url('CC#deletePost').arg(0, post.id)).build()}"> <i class="material-icons">delete_outline</i></a>
+                <a class="update" th:href="${(#mvc.url('CC#getPostUpdateForm').arg(0, post.id)).build()}"> <i class="material-icons">update</i></a>
 
                 <p class="post-autor">
                     <span th:text="${post.autor}"></span>

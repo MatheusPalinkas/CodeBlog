@@ -6,6 +6,7 @@ import com.Spring.codeblog.service.CodeblogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.awt.peer.PanelPeer;
 import java.util.List;
 
 @Service
@@ -32,5 +33,17 @@ public class CodeblogServiceImpl implements CodeblogService {
     @Override
     public void delete(long id) {
         codeblogRepository.deleteById(id);
+    }
+
+    @Override
+    public Post update(Post post) {
+        Post oldPost = codeblogRepository.findById(post.getId())
+                .get();
+
+        oldPost.setTexto(post.getTexto());
+        oldPost.setAutor(post.getAutor());
+        oldPost.setTitulo(post.getTitulo());
+
+        return codeblogRepository.save(oldPost);
     }
 }

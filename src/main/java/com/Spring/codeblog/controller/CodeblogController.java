@@ -41,8 +41,12 @@ public class CodeblogController {
     }
 
     @RequestMapping(value = "/newpost", method = RequestMethod.GET)
-    public String getPostForm(){
-        return  "newPost";
+    public ModelAndView getPostForm(){
+        ModelAndView mv = new ModelAndView("newPost");
+        Post post = new Post();
+
+        mv.addObject("post", post);
+        return mv;
     }
 
     @RequestMapping(value = "/newpost", method = RequestMethod.POST)
@@ -59,6 +63,25 @@ public class CodeblogController {
     @RequestMapping(value = "/posts/delete/{id}", method = RequestMethod.GET)
     public String deletePost(@PathVariable("id") long id){
         codeblogService.delete(id);
+        return  "redirect:/posts";
+    }
+
+    @RequestMapping(value = "/posts/update/{id}", method = RequestMethod.GET)
+    public ModelAndView getPostUpdateForm(@PathVariable("id") long id){
+        ModelAndView mv = new ModelAndView("newPost");
+        Post post = codeblogService.findById(id);
+
+        mv.addObject("post", post);
+        return mv;
+    }
+
+    @RequestMapping(value = "/posts/update/{id}", method = RequestMethod.POST)
+    public String updatePost(@Valid Post post, BindingResult result, RedirectAttributes attributes){
+        if(result.hasErrors())
+            return "redirect:/newpost";
+
+        codeblogService.update(post);
+
         return  "redirect:/posts";
     }
 }

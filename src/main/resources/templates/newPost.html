@@ -141,15 +141,33 @@
                 <form method="post">
                     <div class="campo">
                         <label for="titulo">Título</label>
-                        <input type="text" name="titulo" id="titulo" placeholder="Título do post" required/>
+                        <input
+                                type="text"
+                                name="titulo"
+                                id="titulo"
+                                placeholder="Título do post"
+                                th:value="${post.titulo}"
+                                required/>
                     </div>
                     <div class="campo">
                         <label for="autor">Nome autor</label>
-                        <input type="text" name="autor" id="autor" placeholder="Nome do autor do post" required/>
+                        <input
+                                type="text"
+                                name="autor"
+                                id="autor"
+                                placeholder="Nome do autor do post"
+                                th:value="${post.autor}"
+                                required/>
                     </div>
                     <div class="campo">
                         <label for="texto">Texto</label>
-                        <textarea name="texto" id="texto" placeholder="Digite o conteúdo do post" rows="15" required></textarea>
+                        <textarea
+                                name="texto"
+                                id="texto"
+                                placeholder="Digite o conteúdo do post"
+                                rows="15"
+                                th:utext="${post.texto}"
+                                required></textarea>
                     </div>
                     <div class="campo-botoes">
                         <button type="submit">Publicar</button>
